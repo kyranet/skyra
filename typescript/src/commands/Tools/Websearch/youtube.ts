@@ -3,8 +3,8 @@ import { LanguageKeys } from '#lib/i18n/languageKeys';
 import { SkyraCommand } from '#lib/structures';
 import { Time } from '#utils/constants';
 import { LLRCData, LongLivingReactionCollector } from '#utils/LongLivingReactionCollector';
-import { fetch, FetchResultTypes } from '#utils/util';
 import { ApplyOptions } from '@sapphire/decorators';
+import * as YouTube from '#utils/Notifications/Youtube';
 import { Message, Permissions } from 'discord.js';
 
 const kPermissions = new Permissions([Permissions.FLAGS.ADD_REACTIONS, Permissions.FLAGS.MANAGE_MESSAGES]).freeze();
@@ -25,13 +25,7 @@ const EMOJIS = {
 export class UserCommand extends SkyraCommand {
 	public async run(message: Message, args: SkyraCommand.Args) {
 		const input = await args.rest('string');
-		const url = new URL('https://youtube.googleapis.com/youtube/v3/search');
-		url.searchParams.append('part', 'snippet');
-		url.searchParams.append('safeSearch', 'strict');
-		url.searchParams.append('q', input);
-		url.searchParams.append('key', process.env.GOOGLE_API_TOKEN);
-
-		const data = await fetch<YouTubeResultOk>(url, FetchResultTypes.JSON);
+		const data = await YouTube.getInfo(input);
 		const results = data.items.slice(0, 5);
 
 		if (!results.length) this.error(LanguageKeys.Commands.Tools.YouTubeNotFound);
@@ -94,7 +88,7 @@ export class UserCommand extends SkyraCommand {
 		llrc.setTime(Time.Second * 60);
 	}
 
-	private getLink(result: YouTubeResultOkItem) {
+	private getLink(result: YouTube.ResultOkItem) {
 		let output = '';
 		switch (result.id.kind) {
 			case 'youtube#channel':
@@ -114,54 +108,4 @@ export class UserCommand extends SkyraCommand {
 
 		return output;
 	}
-}
-
-export interface YouTubeResultOk {
-	kind: string;
-	etag: string;
-	nextPageToken: string;
-	regionCode: string;
-	pageInfo: YouTubeResultOkPageInfo;
-	items: YouTubeResultOkItem[];
-}
-
-export interface YouTubeResultOkItem {
-	kind: string;
-	etag: string;
-	id: YouTubeResultOkID;
-	snippet: YouTubeResultOkSnippet;
-}
-
-export interface YouTubeResultOkID {
-	kind: string;
-	playlistId?: string;
-	channelId?: string;
-	videoId?: string;
-}
-
-export interface YouTubeResultOkSnippet {
-	publishedAt: Date;
-	channelId: string;
-	title: string;
-	description: string;
-	thumbnails: YouTubeResultOkThumbnails;
-	channelTitle: string;
-	liveBroadcastContent: string;
-}
-
-export interface YouTubeResultOkThumbnails {
-	default: YouTubeResultOkThumbnail;
-	medium: YouTubeResultOkThumbnail;
-	high: YouTubeResultOkThumbnail;
-}
-
-export interface YouTubeResultOkThumbnail {
-	url: string;
-	width: number;
-	height: number;
-}
-
-export interface YouTubeResultOkPageInfo {
-	totalResults: number;
-	resultsPerPage: number;
 }
