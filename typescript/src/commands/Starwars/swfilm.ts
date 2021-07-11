@@ -109,7 +109,7 @@ export class UserPaginateCommand extends PaginatedMessageCommand {
 		try {
 			const {
 				data: { getFuzzyFilm }
-			} = await fetchStarWarsApi<'getFuzzyFilm'>(getFilms, { film });
+			} = await fetchStarWarsApi<'getFuzzyFilm'>(getFilms, { film, take: 10 });
 			return getFuzzyFilm;
 		} catch {
 			this.error(LanguageKeys.Commands.StarWars.FilmQueryFail, { film });
