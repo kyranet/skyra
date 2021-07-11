@@ -15,8 +15,8 @@ import type {
 import { gql } from '../util';
 
 export const getFilms = gql`
-	query ($film: String!) {
-		getFuzzyFilm(film: $film, take: 10) {
+	query ($film: String!, $take: Int, $reverse: Boolean) {
+		getFuzzyFilm(film: $film, take: $take, reverse: $reverse) {
 			director
 			episodeId
 			releaseDate
@@ -38,6 +38,133 @@ export const getFilms = gql`
 			vehicles {
 				name
 			}
+		}
+	}
+`;
+
+export const getPerson = gql`
+	query ($person: String!, $take: Int, $reverse: Boolean) {
+		getFuzzyPerson(person: $person, take: $take, reverse: $reverse) {
+			birthYear
+			eyeColors
+			films {
+				title
+			}
+			gender
+			hairColors
+			height
+			homeworld {
+				name
+			}
+			mass
+			name
+			skinColors
+			species {
+				name
+			}
+			starships {
+				name
+			}
+			vehicles {
+				name
+			}
+		}
+	}
+`;
+
+export const getPlanet = gql`
+	query ($planet: String!, $take: Int, $reverse: Boolean) {
+		getFuzzyPlanet(planet: $planet, take: $take, reverse: $reverse) {
+			climates
+			diameter
+			films {
+				title
+			}
+			gravity
+			name
+			orbitalPeriod
+			population
+			residents {
+				name
+			}
+			rotationPeriod
+			surfaceWater
+			terrains
+		}
+	}
+`;
+
+export const getSpecies = gql`
+	query ($species: String!, $take: Int, $reverse: Boolean) {
+		getFuzzySpecies(species: $species, take: $take, reverse: $reverse) {
+			averageHeight
+			averageLifespan
+			classification
+			designation
+			eyeColors
+			films {
+				title
+			}
+			hairColors
+			homeworld {
+				name
+			}
+			language
+			name
+			people {
+				name
+			}
+			skinColors
+		}
+	}
+`;
+
+export const getStarship = gql`
+	query ($starship: String!, $take: Int, $reverse: Boolean) {
+		getFuzzyStarship(starship: $starship, take: $take, reverse: $reverse) {
+			cargoCapacity
+			consumables
+			costInCredits
+			crew
+			films {
+				title
+			}
+			hyperdriveRating
+			length
+			manufacturers
+			maxAtmospheringSpeed
+			MGLT
+			model
+			name
+			passengers
+			pilots {
+				name
+			}
+			starshipClass
+		}
+	}
+`;
+
+export const getVehicle = gql`
+	query ($vehicle: String!, $take: Int, $reverse: Boolean) {
+		getFuzzyVehicle(vehicle: $vehicle, take: $take, reverse: $reverse) {
+			cargoCapacity
+			consumables
+			costInCredits
+			crew
+			films {
+				title
+			}
+			length
+			manufacturers
+			maxAtmospheringSpeed
+			model
+			name
+			passengers
+			pilots {
+				name
+			}
+			vehicleClass
 		}
 	}
 `;
