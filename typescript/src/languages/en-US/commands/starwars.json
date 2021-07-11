@@ -50,7 +50,7 @@
 		],
         "reminder": "At the moment only data on the first 6 movies is available. Data in movies 7 through 9 and spin-offs might be added in the future."
     },
-    "peopleQueryFail": "{{REDCROSS}} I am sorry, but that query failed. Are you sure `{{INSERT}}` is actually a INSERT in Star Wars?",
+    "peopleQueryFail": "{{REDCROSS}} I am sorry, but that query failed. Are you sure `{{person}}` is actually a person in Star Wars?",
     "peopleEmbedTitles": {
         "appearedInFilms": "Appeared in these films",
         "eyeColours": "Eye colors",
@@ -83,7 +83,7 @@
 		],
         "reminder": "At the moment only data on the first 6 movies is available. Data in movies 7 through 9 and spin-offs might be added in the future."
     },
-    "planetsQueryFail": "{{REDCROSS}} I am sorry, but that query failed. Are you sure `{{INSERT}}` is actually a INSERT in Star Wars?",
+    "planetsQueryFail": "{{REDCROSS}} I am sorry, but that query failed. Are you sure `{{planet}}` is actually a planet in Star Wars?",
     "planetsEmbedTitles": {
         "appearedInFilms": "Appeared in these films",
         "averageSentientPopulation": "Average of sentient inhabitants",
@@ -115,7 +115,7 @@
 		],
         "reminder": "At the moment only data on the first 6 movies is available. Data in movies 7 through 9 and spin-offs might be added in the future."
     },
-    "speciesQueryFail": "{{REDCROSS}} I am sorry, but that query failed. Are you sure `{{INSERT}}` is actually a INSERT in Star Wars?",
+    "speciesQueryFail": "{{REDCROSS}} I am sorry, but that query failed. Are you sure `{{species}}` is actually a species in Star Wars?",
     "speciesEmbedTitles": {
         "appearedInFilms": "Appeared in these films",
         "averageHeight": "Average height",
@@ -146,7 +146,7 @@
 		],
         "reminder": "At the moment only data on the first 6 movies is available. Data in movies 7 through 9 and spin-offs might be added in the future."
     },
-    "starshipsQueryFail": "{{REDCROSS}} I am sorry, but that query failed. Are you sure `{{INSERT}}` is actually a INSERT in Star Wars?",
+    "starshipsQueryFail": "{{REDCROSS}} I am sorry, but that query failed. Are you sure `{{starship}}` is actually a starship in Star Wars?",
     "starshipsEmbedTitles": {
         "amountOfPassengers": "Amount of passengers",
         "appearedInFilms": "Appeared in films",
@@ -180,7 +180,7 @@
 		],
         "reminder": "At the moment only data on the first 6 movies is available. Data in movies 7 through 9 and spin-offs might be added in the future."
     },
-    "vehiclesQueryFail": "{{REDCROSS}} I am sorry, but that query failed. Are you sure `{{INSERT}}` is actually a INSERT in Star Wars?",
+    "vehiclesQueryFail": "{{REDCROSS}} I am sorry, but that query failed. Are you sure `{{vehicle}}` is actually a vehicle in Star Wars?",
     "vehiclesEmbedTitles": {
         "amountOfPassengers": "Amount of passengers",
         "appearedInFilms": "Appeared in films",
