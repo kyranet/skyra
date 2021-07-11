@@ -14,8 +14,6 @@ import type {
 } from '@skyra/star-wars-api';
 import { gql } from '../util';
 
-export const StarWarsFooter = 'Powered by https://swapi.skyra.pw';
-
 export const getFilms = gql`
 	query ($film: String!) {
 		getFuzzyFilm(film: $film, take: 10) {

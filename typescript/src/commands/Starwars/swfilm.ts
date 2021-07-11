@@ -1,18 +1,18 @@
 import { LanguageKeys } from '#lib/i18n/languageKeys';
 import { PaginatedMessageCommand, UserPaginatedMessage } from '#lib/structures';
-import { ApplyOptions } from '@sapphire/decorators';
-import { fetchStarWarsApi, getFilms, StarWarsFooter } from '#utils/APIs/StarWars';
-import { MessageEmbed } from 'discord.js';
-import { sendLoadingMessage } from '#utils/util';
-import { CdnUrls } from '#lib/types/Constants';
-import { cutText } from '@sapphire/utilities';
 import type { GuildMessage } from '#lib/types';
+import { CdnUrls } from '#lib/types/Constants';
+import { fetchStarWarsApi, getFilms } from '#utils/APIs/StarWars';
+import { sendLoadingMessage } from '#utils/util';
+import { ApplyOptions } from '@sapphire/decorators';
+import { cutText } from '@sapphire/utilities';
+import { MessageEmbed } from 'discord.js';
 
 @ApplyOptions<PaginatedMessageCommand.Options>({
 	aliases: ['star-wars-film', 'star-wars-movie'],
 	cooldown: 10,
-	description: LanguageKeys.Commands.Pokemon.PokedexDescription,
-	extendedHelp: LanguageKeys.Commands.Pokemon.PokedexExtended
+	description: LanguageKeys.Commands.StarWars.FilmDescription,
+	extendedHelp: LanguageKeys.Commands.StarWars.FilmExtended
 })
 export class UserPaginateCommand extends PaginatedMessageCommand {
 	public async run(message: GuildMessage, args: PaginatedMessageCommand.Args) {
@@ -28,7 +28,6 @@ export class UserPaginateCommand extends PaginatedMessageCommand {
 		const display = new UserPaginatedMessage({
 			template: new MessageEmbed() //
 				.setColor(await this.context.db.fetchColor(message))
-				.setFooter(StarWarsFooter)
 				.setThumbnail(CdnUrls.StarWarsLogo)
 		});
 
