@@ -63,6 +63,38 @@ export class UserPaginateCommand extends PaginatedMessageCommand {
 						);
 					}
 
+					if (result.planets.length) {
+						description.push(
+							`**${filmTitles.planets}**: ${t(LanguageKeys.Globals.AndListValue, {
+								value: result.planets.map((planet) => `\`${planet.name}\``)
+							})}`
+						);
+					}
+
+					if (result.species.length) {
+						description.push(
+							`**${filmTitles.species}**: ${t(LanguageKeys.Globals.AndListValue, {
+								value: result.species.map((species) => `\`${species.name}\``)
+							})}`
+						);
+					}
+
+					if (result.starships.length) {
+						description.push(
+							`**${filmTitles.starships}**: ${t(LanguageKeys.Globals.AndListValue, {
+								value: result.starships.map((starship) => `\`${starship.name}\``)
+							})}`
+						);
+					}
+
+					if (result.vehicles.length) {
+						description.push(
+							`**${filmTitles.vehicles}**: ${t(LanguageKeys.Globals.AndListValue, {
+								value: result.vehicles.map((vehicle) => `\`${vehicle.name}\``)
+							})}`
+						);
+					}
+
 					return embed
 						.setTitle(result.title) //
 						.setDescription(description.join('\n\n'));
