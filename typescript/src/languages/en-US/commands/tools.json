@@ -623,7 +623,7 @@
 		"films": {
 			"characters": "Top 3 characters in this film",
 			"creationDate": "Creation date",
-			"director": "Directory",
+			"director": "Director",
 			"episodeId": "Episode ID",
 			"planets": "Top 3 planets in this film",
 			"producer": "Producer",
