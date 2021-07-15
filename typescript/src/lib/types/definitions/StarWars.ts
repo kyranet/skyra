@@ -36,7 +36,7 @@ export interface EmbedTitles {
 	[Resource.Planets]: {
 		appearedInFilms: string;
 		averageSentientPopulation: string;
-		climate: string;
+		climates: string;
 		diameter: string;
 		gravity: string;
 		gravityBody: string;

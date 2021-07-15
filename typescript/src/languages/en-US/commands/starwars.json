@@ -87,7 +87,7 @@
     "planetsEmbedTitles": {
         "appearedInFilms": "Appeared in these films",
         "averageSentientPopulation": "Average of sentient inhabitants",
-        "climate": "Climate(s)",
+        "climates": "Climates",
         "diameter": "Diameter in kilometers",
         "gravity": "Gravity",
         "gravityBody": "{{gravity}} times standard gravity",

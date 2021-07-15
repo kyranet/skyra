@@ -18,12 +18,12 @@ import { MessageEmbed } from 'discord.js';
 export class UserPaginateCommand extends PaginatedMessageCommand {
 	public async run(message: GuildMessage, args: PaginatedMessageCommand.Args) {
 		const { t } = args;
-		const [film, loadingMessage] = await Promise.all([args.rest('string'), sendLoadingMessage(message, t)]);
+		const [person, loadingMessage] = await Promise.all([args.rest('string'), sendLoadingMessage(message, t)]);
 
-		const results = await this.fetchAPI(film.toLowerCase());
+		const results = await this.fetchAPI(person);
 
 		if (results.length === 0) {
-			this.error(LanguageKeys.Commands.StarWars.PeopleQueryFail, { film });
+			this.error(LanguageKeys.Commands.StarWars.PeopleQueryFail, { person });
 		}
 
 		const display = new UserPaginatedMessage({
